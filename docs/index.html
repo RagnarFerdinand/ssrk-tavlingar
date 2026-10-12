@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSRK prov</title>
+<style>
+  body{font:16px/1.4 system-ui,sans-serif;margin:0 auto;max-width:40rem;padding:1rem}
+  select,input{font:inherit;width:100%;padding:.5rem;margin:.25rem 0 .75rem;box-sizing:border-box}
+  li{padding:.5rem 0;border-bottom:1px solid #8884}
+  ul{list-style:none;padding:0}
+  a{color:inherit}
+  .liten{color:#888;font-size:.85rem}
+</style>
+</head>
+<body>
+<h1>SSRK prov</h1>
+<p id="status" class="liten">Laddar…</p>
+<select id="namn"><option value="">Alla provtyper</option></select>
+<select id="klubb"><option value="">Alla klubbar</option></select>
+<input id="sok" type="search" placeholder="Sök plats eller klubb">
+<ul id="lista"></ul>
+<script>
+const $ = id => document.getElementById(id);
+const idag = new Date().toISOString().slice(0, 10);
+let prov = [];
+const sv = (a, b) => a.localeCompare(b, "sv");
+function anmalan(t) {
+  if (!t.anmalan_slut) return "";
+  if (idag < t.anmalan_start) return "anmälan öppnar " + t.anmalan_start;
+  if (idag <= t.anmalan_slut) return "anmälan öppen till " + t.anmalan_slut;
+  return "anmälan stängd";
+}
+function rita() {
+  const n = $("namn").value, k = $("klubb").value, q = $("sok").value.toLowerCase();
+  const rader = prov.filter(t => (!n || t.namn === n) && (!k || t.klubb === k) &&
+    (!q || (t.plats + " " + t.klubb + " " + t.namn).toLowerCase().includes(q)));
+  $("lista").innerHTML = rader.map(t => {
+    const dat = t.slutdatum !== t.datum ? t.datum + " – " + t.slutdatum : t.datum;
+    return `<li><b>${dat}</b> <a href="${t.url}">${t.namn}</a><br>
+      <span class="liten">${t.plats} · ${t.klubb} · ${t.avgift || ""}<br>
+      ${t.klasser.join(", ")}<br>${anmalan(t)}</span></li>`;
+  }).join("") || "<li class='liten'>Inga prov hittades.</li>";
+}
+fetch("data/tavlingar.json").then(r => r.json()).then(d => {
+  prov = d.tavlingar.filter(t => t.slutdatum >= idag);
+  [...new Set(prov.map(t => t.namn))].sort(sv).forEach(x => $("namn").add(new Option(x, x)));
+  [...new Set(prov.map(t => t.klubb).filter(Boolean))].sort(sv).forEach(x => $("klubb").add(new Option(x, x)));
+  $("status").textContent = `${prov.length} kommande prov. Uppdaterad: ${d.uppdaterad || "aldrig"}`;
+  rita();
+});
+$("namn").onchange = $("klubb").onchange = $("sok").oninput = rita;
+</script>
+</body>
+</html>
