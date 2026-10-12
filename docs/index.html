@@ -26,6 +26,10 @@
   .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
   .kort.oppen .mer{display:block}
   .mer a{color:var(--bla)}
+  .verktyg{display:flex;justify-content:flex-end;gap:.5rem}
+  .ikon{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.4rem .9rem;font-size:.95rem}
+  .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:.6rem 1rem;border-radius:2rem;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.syns{opacity:1}
   .tom{color:var(--gra);text-align:center;padding:2rem 0}
   dialog{border:0;border-radius:1rem 1rem 0 0;padding:0;width:100%;max-width:36rem;margin:auto auto 0;max-height:80vh}
   dialog::backdrop{background:#0006}
@@ -37,6 +41,10 @@
 </style>
 </head>
 <body>
+<div class="verktyg">
+  <button class="ikon" id="uppdatera">↻ Uppdatera</button>
+  <button class="ikon" id="dela">↗ Dela</button>
+</div>
 <div class="rad" id="namn"></div>
 <div class="rad" id="klubb"></div>
 <p class="info" id="info">Laddar…</p>
@@ -47,6 +55,7 @@
   <div class="ark-topp"><b id="ark-titel"></b><button id="klar">Klar</button></div>
   <div id="ark-lista"></div>
 </dialog>
+<div class="toast" id="toast"></div>
 
 <script>
 const $ = id => document.getElementById(id);
@@ -59,6 +68,10 @@ try {
   const s = JSON.parse(localStorage.getItem("ssrk-val") || "{}");
   valda = {namn: new Set(s.namn || []), klubb: new Set(s.klubb || [])};
 } catch (e) {}
+const url = new URLSearchParams(location.search);
+if (url.has("t") || url.has("a")) {
+  valda = {namn: new Set(url.getAll("t")), klubb: new Set(url.getAll("a"))};
+}
 const spara = () => { try { localStorage.setItem("ssrk-val", JSON.stringify({namn: [...valda.namn], klubb: [...valda.klubb]})); } catch (e) {} };
 
 function datumText(d) {
@@ -127,11 +140,43 @@ $("klar").onclick = () => $("ark").close();
 $("ark").onclick = e => { if (e.target === $("ark")) $("ark").close(); };
 $("lista").onclick = e => { const k = e.target.closest(".kort"); if (k) k.classList.toggle("oppen"); };
 
-fetch("data/tavlingar.json").then(r => r.json()).then(d => {
+function toast(text) {
+  $("toast").textContent = text;
+  $("toast").classList.add("syns");
+  setTimeout(() => $("toast").classList.remove("syns"), 2000);
+}
+
+function delningslank() {
+  const q = new URLSearchParams();
+  valda.namn.forEach(v => q.append("t", v));
+  valda.klubb.forEach(v => q.append("a", v));
+  return location.origin + location.pathname + (q.toString() ? "?" + q : "");
+}
+
+$("dela").onclick = async () => {
+  const lank = delningslank();
+  const titel = "SSRK prov – " + $("info").textContent;
+  try {
+    if (navigator.share) { await navigator.share({title: titel, url: lank}); return; }
+    await navigator.clipboard.writeText(lank);
+    toast("Länken är kopierad");
+  } catch (e) {
+    if (e.name !== "AbortError") prompt("Kopiera länken:", lank);
+  }
+};
+
+function hamta() {
+  return fetch("data/tavlingar.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.json()).then(d => {
   prov = d.tavlingar.filter(t => t.slutdatum >= idag);
   $("uppdaterad").textContent = `Källa: SKK Start. Uppdaterad ${d.uppdaterad}. Prov som inte publiceras i SKK Start syns inte.`;
   uppdatera();
-});
+  return d;
+  });
+}
+hamta();
+$("uppdatera").onclick = () => hamta()
+  .then(d => toast(`Uppdaterad · data från ${d.uppdaterad}`))
+  .catch(() => toast("Kunde inte hämta, försök igen"));
 </script>
 </body>
 </html>
