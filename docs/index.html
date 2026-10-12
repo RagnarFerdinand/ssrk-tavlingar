@@ -5,73 +5,139 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SSRK prov</title>
 <style>
-  body{font:16px/1.4 system-ui,sans-serif;margin:0 auto;max-width:40rem;padding:1rem}
-  select,input{font:inherit;width:100%;padding:.5rem;margin:.25rem 0 .75rem;box-sizing:border-box}
-  li{padding:.5rem 0;border-bottom:1px solid #8884}
-  ul{list-style:none;padding:0}
-  a{color:inherit}
-  .liten{color:#888;font-size:.85rem}
-  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 .75rem}
-  .chips button{font:inherit;font-size:.9rem;padding:.35rem .7rem;border:1px solid #8888;border-radius:1rem;background:none;color:inherit}
-  .chips button.vald{background:#2563eb;border-color:#2563eb;color:#fff}
-  h2{font-size:1rem;margin:.5rem 0 0}
+  :root{--bg:#f6f5f2;--kort:#fff;--text:#1d1d1f;--gra:#7a7a7a;--linje:#e3e1dc;--bla:#2f5d8a;--chip:#e6eef6}
+  *{box-sizing:border-box}
+  body{font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
+  button{font:inherit;color:inherit;cursor:pointer}
+  .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 1rem}
+  .chip{background:var(--chip);border:0;border-radius:2rem;padding:.45rem .9rem}
+  .chip span{margin-left:.6rem;color:var(--gra)}
+  .lagg{background:none;border:1.5px dashed #c9c6bf;border-radius:2rem;padding:.4rem .9rem;color:var(--gra)}
+  .filter{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.5rem 1rem;display:flex;align-items:center;gap:.5rem}
+  .badge{background:var(--bla);color:#fff;border-radius:1rem;min-width:1.6rem;height:1.6rem;display:inline-grid;place-items:center;font-size:.9rem}
+  .info{color:var(--gra);margin:.25rem 0 1rem}
+  .kort{background:var(--kort);border:1px solid var(--linje);border-left:5px solid var(--bla);border-radius:1rem;padding:1rem 1.1rem;margin-bottom:1rem}
+  .topp{display:flex;align-items:baseline;gap:.8rem}
+  .datum{color:var(--bla);font-weight:600;font-size:1.1rem}
+  .typ{color:var(--gra)}
+  .pil{margin-left:auto;background:none;border:0;color:var(--gra);font-size:.8rem;padding:.3rem}
+  .klubb{font-weight:700;font-size:1.25rem;margin-top:.2rem}
+  .plats{color:var(--gra)}
+  .fot{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--linje);margin-top:.8rem;padding-top:.8rem}
+  .fot b{text-align:right}
+  .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
+  .kort.oppen .mer{display:block}
+  .mer a{color:var(--bla)}
+  .tom{color:var(--gra);text-align:center;padding:2rem 0}
+  dialog{border:0;border-radius:1rem 1rem 0 0;padding:0;width:100%;max-width:36rem;margin:auto auto 0;max-height:80vh}
+  dialog::backdrop{background:#0006}
+  .ark-topp{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.1rem;border-bottom:1px solid var(--linje);position:sticky;top:0;background:#fff}
+  .ark-topp button{background:var(--bla);color:#fff;border:0;border-radius:2rem;padding:.4rem 1rem}
+  .val{display:flex;align-items:center;gap:.8rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--linje)}
+  .val input{width:1.3rem;height:1.3rem;accent-color:var(--bla)}
+  .val small{margin-left:auto;color:var(--gra)}
 </style>
 </head>
 <body>
-<h1>SSRK prov</h1>
-<p id="status" class="liten">Laddar…</p>
-<h2>Provtyp</h2>
-<div id="namn" class="chips"></div>
-<h2>Avdelning</h2>
-<div id="klubb" class="chips"></div>
-<input id="sok" type="search" placeholder="Sök plats eller klubb">
-<p id="antal" class="liten"></p>
-<ul id="lista"></ul>
+<div class="rad" id="typer"></div>
+<div class="rad">
+  <button class="filter" id="filterknapp">⚙︎ Filter <span class="badge" id="antalfilter" hidden></span> ▾</button>
+</div>
+<p class="info" id="info">Laddar…</p>
+<div id="lista"></div>
+<p class="info" id="uppdaterad"></p>
+
+<dialog id="ark">
+  <div class="ark-topp"><b id="ark-titel"></b><button id="klar">Klar</button></div>
+  <div id="ark-lista"></div>
+</dialog>
+
 <script>
 const $ = id => document.getElementById(id);
 const idag = new Date().toISOString().slice(0, 10);
-let prov = [];
-const valda = {namn: new Set(), klubb: new Set()};
-function chips(falt, varden) {
-  const el = $(falt);
-  varden.forEach(v => {
-    const b = document.createElement("button");
-    b.textContent = v.replace(/^SSRK - /, "");
-    b.onclick = () => {
-      valda[falt].has(v) ? valda[falt].delete(v) : valda[falt].add(v);
-      b.classList.toggle("vald");
-      rita();
-    };
-    el.append(b);
-  });
-}
 const sv = (a, b) => a.localeCompare(b, "sv");
+const kort = n => n.replace(/^SSRK - /, "").replace(/^SKK - /, "").replace(/^Retrieverjaktprov (\w)$/, "$1-prov");
+let prov = [];
+let valda = {namn: new Set(), klubb: new Set()};
+try {
+  const s = JSON.parse(localStorage.getItem("ssrk-val") || "{}");
+  valda = {namn: new Set(s.namn || []), klubb: new Set(s.klubb || [])};
+} catch (e) {}
+const spara = () => { try { localStorage.setItem("ssrk-val", JSON.stringify({namn: [...valda.namn], klubb: [...valda.klubb]})); } catch (e) {} };
+
+function datumText(d) {
+  return new Date(d + "T12:00").toLocaleDateString("sv-SE", {weekday: "short", day: "numeric", month: "long", year: "numeric"});
+}
 function anmalan(t) {
   if (!t.anmalan_slut) return "";
-  if (idag < t.anmalan_start) return "anmälan öppnar " + t.anmalan_start;
-  if (idag <= t.anmalan_slut) return "anmälan öppen till " + t.anmalan_slut;
-  return "anmälan stängd";
+  if (idag < t.anmalan_start) return "Anmälan öppnar " + t.anmalan_start;
+  if (idag <= t.anmalan_slut) return "Anmälan öppen till " + t.anmalan_slut;
+  return "Anmälan stängd";
 }
-function rita() {
-  const n = valda.namn, k = valda.klubb, q = $("sok").value.toLowerCase();
-  const rader = prov.filter(t => (!n.size || n.has(t.namn)) && (!k.size || k.has(t.klubb)) &&
-    (!q || (t.plats + " " + t.klubb + " " + t.namn).toLowerCase().includes(q)));
-  $("antal").textContent = rader.length + " prov visas";
+
+function ritaTyper() {
+  $("typer").innerHTML = "";
+  [...valda.namn].sort(sv).forEach(n => {
+    const b = document.createElement("button");
+    b.className = "chip";
+    b.innerHTML = `${kort(n)}<span>✕</span>`;
+    b.onclick = () => { valda.namn.delete(n); uppdatera(); };
+    $("typer").append(b);
+  });
+  const lagg = document.createElement("button");
+  lagg.className = "lagg";
+  lagg.textContent = "+ Provtyp";
+  lagg.onclick = () => oppna("namn", "Provtyp");
+  $("typer").append(lagg);
+  const n = valda.klubb.size;
+  $("antalfilter").hidden = !n;
+  $("antalfilter").textContent = n;
+}
+
+function ritaLista() {
+  const rader = prov.filter(t => (!valda.namn.size || valda.namn.has(t.namn)) &&
+                                 (!valda.klubb.size || valda.klubb.has(t.klubb)));
+  const typer = valda.namn.size ? [...valda.namn].map(kort).join(", ") : "Alla provtyper";
+  const avd = valda.klubb.size ? [...valda.klubb].join(", ") : "Hela Sverige";
+  $("info").textContent = `${avd} · ${typer} · ${rader.length} prov`;
   $("lista").innerHTML = rader.map(t => {
-    const dat = t.slutdatum !== t.datum ? t.datum + " – " + t.slutdatum : t.datum;
-    return `<li><b>${dat}</b> <a href="${t.url}">${t.namn}</a><br>
-      <span class="liten">${t.plats} · ${t.klubb} · ${t.avgift || ""}<br>
-      ${t.klasser.join(", ")}<br>${anmalan(t)}</span></li>`;
-  }).join("") || "<li class='liten'>Inga prov hittades.</li>";
+    const dat = datumText(t.datum) + (t.slutdatum !== t.datum ? " – " + datumText(t.slutdatum) : "");
+    return `<div class="kort">
+      <div class="topp"><span class="datum">${dat}</span><span class="typ">${kort(t.namn)}</span><button class="pil" aria-label="Visa mer">▾</button></div>
+      <div class="klubb">${t.klubb}</div>
+      <div class="plats">${t.plats}</div>
+      <div class="fot"><span class="plats">${t.klasser.filter(k => !/^(Officiellt|Inofficiellt)$/.test(k)).join(", ")}</span><b>${t.avgift}</b></div>
+      <div class="mer">${anmalan(t)}<br>${t.klasser.includes("Inofficiellt") ? "Inofficiellt" : "Officiellt"} · <a href="${t.url}">Anmälan i SKK Start →</a></div>
+    </div>`;
+  }).join("") || `<p class="tom">Inga prov matchar valen.</p>`;
 }
+
+function uppdatera() { spara(); ritaTyper(); ritaLista(); }
+
+function oppna(falt, titel) {
+  $("ark-titel").textContent = titel;
+  const antal = {};
+  prov.forEach(t => { antal[t[falt]] = (antal[t[falt]] || 0) + 1; });
+  $("ark-lista").innerHTML = Object.keys(antal).filter(Boolean).sort(sv).map((v, i) =>
+    `<label class="val"><input type="checkbox" data-v="${v.replace(/"/g, "&quot;")}" ${valda[falt].has(v) ? "checked" : ""}>
+     ${falt === "namn" ? kort(v) : v}<small>${antal[v]}</small></label>`).join("");
+  $("ark-lista").querySelectorAll("input").forEach(i => i.onchange = () => {
+    i.checked ? valda[falt].add(i.dataset.v) : valda[falt].delete(i.dataset.v);
+    uppdatera();
+  });
+  $("ark").showModal();
+}
+
+$("filterknapp").onclick = () => oppna("klubb", "Avdelning");
+$("klar").onclick = () => $("ark").close();
+$("ark").onclick = e => { if (e.target === $("ark")) $("ark").close(); };
+$("lista").onclick = e => { const k = e.target.closest(".kort"); if (k) k.classList.toggle("oppen"); };
+
 fetch("data/tavlingar.json").then(r => r.json()).then(d => {
   prov = d.tavlingar.filter(t => t.slutdatum >= idag);
-  chips("namn", [...new Set(prov.map(t => t.namn))].sort(sv));
-  chips("klubb", [...new Set(prov.map(t => t.klubb).filter(Boolean))].sort(sv));
-  $("status").textContent = `${prov.length} kommande prov. Uppdaterad: ${d.uppdaterad || "aldrig"}`;
-  rita();
+  $("uppdaterad").textContent = `Källa: SKK Start. Uppdaterad ${d.uppdaterad}. Prov som inte publiceras i SKK Start syns inte.`;
+  uppdatera();
 });
-$("sok").oninput = rita;
 </script>
 </body>
 </html>
