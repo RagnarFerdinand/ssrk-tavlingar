@@ -11,19 +11,40 @@
   ul{list-style:none;padding:0}
   a{color:inherit}
   .liten{color:#888;font-size:.85rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 .75rem}
+  .chips button{font:inherit;font-size:.9rem;padding:.35rem .7rem;border:1px solid #8888;border-radius:1rem;background:none;color:inherit}
+  .chips button.vald{background:#2563eb;border-color:#2563eb;color:#fff}
+  h2{font-size:1rem;margin:.5rem 0 0}
 </style>
 </head>
 <body>
 <h1>SSRK prov</h1>
 <p id="status" class="liten">Laddar…</p>
-<select id="namn"><option value="">Alla provtyper</option></select>
-<select id="klubb"><option value="">Alla klubbar</option></select>
+<h2>Provtyp</h2>
+<div id="namn" class="chips"></div>
+<h2>Avdelning</h2>
+<div id="klubb" class="chips"></div>
 <input id="sok" type="search" placeholder="Sök plats eller klubb">
+<p id="antal" class="liten"></p>
 <ul id="lista"></ul>
 <script>
 const $ = id => document.getElementById(id);
 const idag = new Date().toISOString().slice(0, 10);
 let prov = [];
+const valda = {namn: new Set(), klubb: new Set()};
+function chips(falt, varden) {
+  const el = $(falt);
+  varden.forEach(v => {
+    const b = document.createElement("button");
+    b.textContent = v.replace(/^SSRK - /, "");
+    b.onclick = () => {
+      valda[falt].has(v) ? valda[falt].delete(v) : valda[falt].add(v);
+      b.classList.toggle("vald");
+      rita();
+    };
+    el.append(b);
+  });
+}
 const sv = (a, b) => a.localeCompare(b, "sv");
 function anmalan(t) {
   if (!t.anmalan_slut) return "";
@@ -32,9 +53,10 @@ function anmalan(t) {
   return "anmälan stängd";
 }
 function rita() {
-  const n = $("namn").value, k = $("klubb").value, q = $("sok").value.toLowerCase();
-  const rader = prov.filter(t => (!n || t.namn === n) && (!k || t.klubb === k) &&
+  const n = valda.namn, k = valda.klubb, q = $("sok").value.toLowerCase();
+  const rader = prov.filter(t => (!n.size || n.has(t.namn)) && (!k.size || k.has(t.klubb)) &&
     (!q || (t.plats + " " + t.klubb + " " + t.namn).toLowerCase().includes(q)));
+  $("antal").textContent = rader.length + " prov visas";
   $("lista").innerHTML = rader.map(t => {
     const dat = t.slutdatum !== t.datum ? t.datum + " – " + t.slutdatum : t.datum;
     return `<li><b>${dat}</b> <a href="${t.url}">${t.namn}</a><br>
@@ -44,12 +66,12 @@ function rita() {
 }
 fetch("data/tavlingar.json").then(r => r.json()).then(d => {
   prov = d.tavlingar.filter(t => t.slutdatum >= idag);
-  [...new Set(prov.map(t => t.namn))].sort(sv).forEach(x => $("namn").add(new Option(x, x)));
-  [...new Set(prov.map(t => t.klubb).filter(Boolean))].sort(sv).forEach(x => $("klubb").add(new Option(x, x)));
+  chips("namn", [...new Set(prov.map(t => t.namn))].sort(sv));
+  chips("klubb", [...new Set(prov.map(t => t.klubb).filter(Boolean))].sort(sv));
   $("status").textContent = `${prov.length} kommande prov. Uppdaterad: ${d.uppdaterad || "aldrig"}`;
   rita();
 });
-$("namn").onchange = $("klubb").onchange = $("sok").oninput = rita;
+$("sok").oninput = rita;
 </script>
 </body>
 </html>
