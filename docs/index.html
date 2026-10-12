@@ -9,12 +9,10 @@
   *{box-sizing:border-box}
   body{font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
   button{font:inherit;color:inherit;cursor:pointer}
-  .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 1rem}
+  .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 .6rem}
   .chip{background:var(--chip);border:0;border-radius:2rem;padding:.45rem .9rem}
   .chip span{margin-left:.6rem;color:var(--gra)}
   .lagg{background:none;border:1.5px dashed #c9c6bf;border-radius:2rem;padding:.4rem .9rem;color:var(--gra)}
-  .filter{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.5rem 1rem;display:flex;align-items:center;gap:.5rem}
-  .badge{background:var(--bla);color:#fff;border-radius:1rem;min-width:1.6rem;height:1.6rem;display:inline-grid;place-items:center;font-size:.9rem}
   .info{color:var(--gra);margin:.25rem 0 1rem}
   .kort{background:var(--kort);border:1px solid var(--linje);border-left:5px solid var(--bla);border-radius:1rem;padding:1rem 1.1rem;margin-bottom:1rem}
   .topp{display:flex;align-items:baseline;gap:.8rem}
@@ -39,10 +37,8 @@
 </style>
 </head>
 <body>
-<div class="rad" id="typer"></div>
-<div class="rad">
-  <button class="filter" id="filterknapp">⚙︎ Filter <span class="badge" id="antalfilter" hidden></span> ▾</button>
-</div>
+<div class="rad" id="namn"></div>
+<div class="rad" id="klubb"></div>
 <p class="info" id="info">Laddar…</p>
 <div id="lista"></div>
 <p class="info" id="uppdaterad"></p>
@@ -75,30 +71,29 @@ function anmalan(t) {
   return "Anmälan stängd";
 }
 
-function ritaTyper() {
-  $("typer").innerHTML = "";
-  [...valda.namn].sort(sv).forEach(n => {
+const RUBRIK = {namn: "Tävling", klubb: "Arrangör"};
+function ritaChips(falt) {
+  const el = $(falt);
+  el.innerHTML = "";
+  [...valda[falt]].sort(sv).forEach(v => {
     const b = document.createElement("button");
     b.className = "chip";
-    b.innerHTML = `${kort(n)}<span>✕</span>`;
-    b.onclick = () => { valda.namn.delete(n); uppdatera(); };
-    $("typer").append(b);
+    b.innerHTML = `${falt === "namn" ? kort(v) : v}<span>✕</span>`;
+    b.onclick = () => { valda[falt].delete(v); uppdatera(); };
+    el.append(b);
   });
   const lagg = document.createElement("button");
   lagg.className = "lagg";
-  lagg.textContent = "+ Provtyp";
-  lagg.onclick = () => oppna("namn", "Provtyp");
-  $("typer").append(lagg);
-  const n = valda.klubb.size;
-  $("antalfilter").hidden = !n;
-  $("antalfilter").textContent = n;
+  lagg.textContent = "+ " + RUBRIK[falt];
+  lagg.onclick = () => oppna(falt, RUBRIK[falt]);
+  el.append(lagg);
 }
 
 function ritaLista() {
   const rader = prov.filter(t => (!valda.namn.size || valda.namn.has(t.namn)) &&
                                  (!valda.klubb.size || valda.klubb.has(t.klubb)));
-  const typer = valda.namn.size ? [...valda.namn].map(kort).join(", ") : "Alla provtyper";
-  const avd = valda.klubb.size ? [...valda.klubb].join(", ") : "Hela Sverige";
+  const typer = valda.namn.size ? [...valda.namn].map(kort).join(", ") : "Alla tävlingar";
+  const avd = valda.klubb.size ? [...valda.klubb].join(", ") : "Alla arrangörer";
   $("info").textContent = `${avd} · ${typer} · ${rader.length} prov`;
   $("lista").innerHTML = rader.map(t => {
     const dat = datumText(t.datum) + (t.slutdatum !== t.datum ? " – " + datumText(t.slutdatum) : "");
@@ -112,7 +107,7 @@ function ritaLista() {
   }).join("") || `<p class="tom">Inga prov matchar valen.</p>`;
 }
 
-function uppdatera() { spara(); ritaTyper(); ritaLista(); }
+function uppdatera() { spara(); ritaChips("namn"); ritaChips("klubb"); ritaLista(); }
 
 function oppna(falt, titel) {
   $("ark-titel").textContent = titel;
@@ -128,7 +123,6 @@ function oppna(falt, titel) {
   $("ark").showModal();
 }
 
-$("filterknapp").onclick = () => oppna("klubb", "Avdelning");
 $("klar").onclick = () => $("ark").close();
 $("ark").onclick = e => { if (e.target === $("ark")) $("ark").close(); };
 $("lista").onclick = e => { const k = e.target.closest(".kort"); if (k) k.classList.toggle("oppen"); };
