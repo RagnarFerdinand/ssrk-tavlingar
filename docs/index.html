@@ -10,9 +10,13 @@
   body{font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
   button{font:inherit;color:inherit;cursor:pointer}
   .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 .6rem}
-  .chip{background:var(--chip);border:0;border-radius:2rem;padding:.45rem .9rem}
-  .chip span{margin-left:.6rem;color:var(--gra)}
-  .lagg{background:none;border:1.5px dashed #c9c6bf;border-radius:2rem;padding:.4rem .9rem;color:var(--gra)}
+  .dd{position:relative}
+  .ddknapp{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.5rem 1rem}
+  .ddknapp.aktiv{background:var(--chip);border-color:var(--chip)}
+  .ddpanel{display:none;position:absolute;top:calc(100% + .4rem);left:0;z-index:5;background:#fff;border:1px solid var(--linje);border-radius:1rem;box-shadow:0 8px 24px #0002;width:min(20rem,calc(100vw - 2rem));max-height:60vh;overflow:auto}
+  .dd.oppen .ddpanel{display:block}
+  .dd:last-child .ddpanel{left:auto;right:0}
+  .rensa{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--linje);padding:.7rem 1.1rem;color:var(--bla)}
   .info{color:var(--gra);margin:.25rem 0 1rem}
   .kort{background:var(--kort);border:1px solid var(--linje);border-left:5px solid var(--bla);border-radius:1rem;padding:1rem 1.1rem;margin-bottom:1rem}
   .topp{display:flex;align-items:baseline;gap:.8rem}
@@ -31,10 +35,6 @@
   .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:.6rem 1rem;border-radius:2rem;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
   .toast.syns{opacity:1}
   .tom{color:var(--gra);text-align:center;padding:2rem 0}
-  dialog{border:0;border-radius:1rem 1rem 0 0;padding:0;width:100%;max-width:36rem;margin:auto auto 0;max-height:80vh}
-  dialog::backdrop{background:#0006}
-  .ark-topp{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.1rem;border-bottom:1px solid var(--linje);position:sticky;top:0;background:#fff}
-  .ark-topp button{background:var(--bla);color:#fff;border:0;border-radius:2rem;padding:.4rem 1rem}
   .val{display:flex;align-items:center;gap:.8rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--linje)}
   .val input{width:1.3rem;height:1.3rem;accent-color:var(--bla)}
   .val small{margin-left:auto;color:var(--gra)}
@@ -45,16 +45,14 @@
   <button class="ikon" id="uppdatera">↻ Uppdatera</button>
   <button class="ikon" id="dela">↗ Dela</button>
 </div>
-<div class="rad" id="namn"></div>
-<div class="rad" id="klubb"></div>
+<div class="rad">
+  <div class="dd" id="namn"><button class="ddknapp"></button><div class="ddpanel"></div></div>
+  <div class="dd" id="klubb"><button class="ddknapp"></button><div class="ddpanel"></div></div>
+</div>
 <p class="info" id="info">Laddar…</p>
 <div id="lista"></div>
 <p class="info" id="uppdaterad"></p>
 
-<dialog id="ark">
-  <div class="ark-topp"><b id="ark-titel"></b><button id="klar">Klar</button></div>
-  <div id="ark-lista"></div>
-</dialog>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -85,29 +83,42 @@ function anmalan(t) {
 }
 
 const RUBRIK = {namn: "Tävling", klubb: "Arrangör"};
-function ritaChips(falt) {
-  const el = $(falt);
-  el.innerHTML = "";
-  [...valda[falt]].sort(sv).forEach(v => {
-    const b = document.createElement("button");
-    b.className = "chip";
-    b.innerHTML = `${falt === "namn" ? kort(v) : v}<span>✕</span>`;
-    b.onclick = () => { valda[falt].delete(v); uppdatera(); };
-    el.append(b);
-  });
-  const lagg = document.createElement("button");
-  lagg.className = "lagg";
-  lagg.textContent = "+ " + RUBRIK[falt];
-  lagg.onclick = () => oppna(falt, RUBRIK[falt]);
-  el.append(lagg);
+function ritaKnapp(falt) {
+  const n = valda[falt].size, k = $(falt).querySelector(".ddknapp");
+  k.textContent = RUBRIK[falt] + (n ? ` (${n})` : "") + " ▾";
+  k.classList.toggle("aktiv", n > 0);
 }
+
+function ritaPanel(falt) {
+  const antal = {};
+  prov.forEach(t => { antal[t[falt]] = (antal[t[falt]] || 0) + 1; });
+  const panel = $(falt).querySelector(".ddpanel");
+  panel.innerHTML = `<button class="rensa">Rensa val</button>` +
+    Object.keys(antal).filter(Boolean).sort(sv).map(v =>
+      `<label class="val"><input type="checkbox" data-v="${v.replace(/"/g, "&quot;")}" ${valda[falt].has(v) ? "checked" : ""}>
+       ${falt === "namn" ? kort(v) : v}<small>${antal[v]}</small></label>`).join("");
+  panel.querySelector(".rensa").onclick = () => { valda[falt].clear(); ritaPanel(falt); uppdatera(); };
+  panel.querySelectorAll("input").forEach(i => i.onchange = () => {
+    i.checked ? valda[falt].add(i.dataset.v) : valda[falt].delete(i.dataset.v);
+    uppdatera();
+  });
+}
+
+["namn", "klubb"].forEach(falt => {
+  $(falt).querySelector(".ddknapp").onclick = e => {
+    e.stopPropagation();
+    const oppen = $(falt).classList.contains("oppen");
+    document.querySelectorAll(".dd").forEach(d => d.classList.remove("oppen"));
+    if (!oppen) { ritaPanel(falt); $(falt).classList.add("oppen"); }
+  };
+  $(falt).querySelector(".ddpanel").onclick = e => e.stopPropagation();
+});
+document.addEventListener("click", () => document.querySelectorAll(".dd").forEach(d => d.classList.remove("oppen")));
 
 function ritaLista() {
   const rader = prov.filter(t => (!valda.namn.size || valda.namn.has(t.namn)) &&
                                  (!valda.klubb.size || valda.klubb.has(t.klubb)));
-  const typer = valda.namn.size ? [...valda.namn].map(kort).join(", ") : "Alla tävlingar";
-  const avd = valda.klubb.size ? [...valda.klubb].join(", ") : "Alla arrangörer";
-  $("info").textContent = `${avd} · ${typer} · ${rader.length} prov`;
+  $("info").textContent = `${rader.length} prov`;
   $("lista").innerHTML = rader.map(t => {
     const dat = datumText(t.datum) + (t.slutdatum !== t.datum ? " – " + datumText(t.slutdatum) : "");
     return `<div class="kort">
@@ -120,24 +131,8 @@ function ritaLista() {
   }).join("") || `<p class="tom">Inga prov matchar valen.</p>`;
 }
 
-function uppdatera() { spara(); ritaChips("namn"); ritaChips("klubb"); ritaLista(); }
+function uppdatera() { spara(); ritaKnapp("namn"); ritaKnapp("klubb"); ritaLista(); }
 
-function oppna(falt, titel) {
-  $("ark-titel").textContent = titel;
-  const antal = {};
-  prov.forEach(t => { antal[t[falt]] = (antal[t[falt]] || 0) + 1; });
-  $("ark-lista").innerHTML = Object.keys(antal).filter(Boolean).sort(sv).map((v, i) =>
-    `<label class="val"><input type="checkbox" data-v="${v.replace(/"/g, "&quot;")}" ${valda[falt].has(v) ? "checked" : ""}>
-     ${falt === "namn" ? kort(v) : v}<small>${antal[v]}</small></label>`).join("");
-  $("ark-lista").querySelectorAll("input").forEach(i => i.onchange = () => {
-    i.checked ? valda[falt].add(i.dataset.v) : valda[falt].delete(i.dataset.v);
-    uppdatera();
-  });
-  $("ark").showModal();
-}
-
-$("klar").onclick = () => $("ark").close();
-$("ark").onclick = e => { if (e.target === $("ark")) $("ark").close(); };
 $("lista").onclick = e => { const k = e.target.closest(".kort"); if (k) k.classList.toggle("oppen"); };
 
 function toast(text) {
@@ -155,7 +150,7 @@ function delningslank() {
 
 $("dela").onclick = async () => {
   const lank = delningslank();
-  const titel = "SSRK prov – " + $("info").textContent;
+  const titel = "SSRK prov";
   try {
     if (navigator.share) { await navigator.share({title: titel, url: lank}); return; }
     await navigator.clipboard.writeText(lank);
