@@ -21,13 +21,15 @@
   .topp{display:flex;align-items:baseline;gap:.8rem}
   .datum{color:var(--bla);font-weight:600;font-size:1.1rem}
   .typ{color:var(--gra)}
-  .pil{margin-left:auto;background:none;border:0;color:var(--gra);font-size:.8rem;padding:.3rem}
+  .pil{margin-left:auto;align-self:center;background:var(--chip);border:0;border-radius:50%;width:2.4rem;height:2.4rem;flex:none;color:var(--bla);font-size:1.1rem;transition:transform .2s}
+  .kort.oppen .pil{transform:rotate(180deg)}
   .klubb{font-weight:700;font-size:1.25rem;margin-top:.2rem}
   .plats{color:var(--gra)}
-  .fot{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--linje);margin-top:.8rem;padding-top:.8rem}
+  .fot{display:none;justify-content:space-between;gap:1rem;border-top:1px solid var(--linje);margin-top:.8rem;padding-top:.8rem}
   .fot b{text-align:right;white-space:nowrap}
   .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
   .kort.oppen .mer{display:block}
+  .kort.oppen .fot{display:flex}
   .mer a{color:var(--bla)}
   .topp-rad{display:flex;gap:.6rem;align-items:center;margin:.25rem 0 .6rem}
   .topp-rad .kaffe-knapp{flex:1.618;text-align:center}
@@ -137,7 +139,7 @@ function ritaLista() {
     const dat = t.slutdatum === t.datum ? datumText(t.datum)
       : datumText(t.datum, true) + " – " + datumText(t.slutdatum, true) + " " + t.slutdatum.slice(0, 4);
     return `<div class="kort">
-      <div class="topp"><span class="datum">${dat}</span><span class="typ">${kort(t.namn)}</span><button class="pil" aria-label="Visa mer">▾</button></div>
+      <div class="topp"><span class="datum">${dat}</span><span class="typ">${kort(t.namn)}</span><button class="pil" aria-label="Visa mer">▼</button></div>
       <div class="klubb">${t.klubb}</div>
       <div class="plats">${t.plats}</div>
       <div class="fot"><span class="plats">${t.klasser.filter(k => !/^(Officiellt|Inofficiellt)$/.test(k)).join(", ")}</span><b>${t.avgift}</b></div>
@@ -183,6 +185,19 @@ function hamta() {
   return d;
   });
 }
+// Ny version av appen? Jämför serverns Last-Modified med den sida som visas.
+// Laddar om högst en gång per session så att det aldrig kan bli en loop.
+(async () => {
+  try {
+    if (sessionStorage.getItem("ssrk-versionskoll")) return;
+    sessionStorage.setItem("ssrk-versionskoll", "1");
+    const r = await fetch(location.pathname, {method: "HEAD", cache: "no-store"});
+    const server = Date.parse(r.headers.get("last-modified"));
+    const visad = Date.parse(document.lastModified);
+    if (server && visad && server - visad > 2000) $("uppdatera").click();
+  } catch (e) {}
+})();
+
 hamta().then(d => {
   let omladdad = false;
   try { omladdad = sessionStorage.getItem("ssrk-omladdad"); sessionStorage.removeItem("ssrk-omladdad"); } catch (e) {}
