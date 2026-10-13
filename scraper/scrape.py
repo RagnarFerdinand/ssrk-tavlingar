@@ -59,7 +59,10 @@ def rader(h):
         celler = {}
         for k in ("event", "date", "location", "federation", "start-registration-date",
                   "last-registration-date", "fee"):
-            m = re.search(rf'class="flex-table-cell {k}[^"]*">(.*?)(?=<div class="flex-table-cell|\Z)', rad, re.S)
+            # Händelsecellen har egna <div> inuti; övriga celler slutar vid första </div>.
+            # (Utan det fick sista raden på varje sida med sidnumren och sidfoten.)
+            slut = r'(?=<div class="flex-table-cell|\Z)' if k == "event" else r'</div>'
+            m = re.search(rf'class="flex-table-cell {k}[^"]*">(.*?){slut}', rad, re.S)
             celler[k] = m.group(1) if m else ""
         m = re.search(r'href="https://skkstart.se/events/(\d+)".*?#\d+ –\s*<strong>(.*?)</strong>\s*<br>(.*?)</a>',
                       celler["event"], re.S)
