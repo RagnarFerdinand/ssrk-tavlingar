@@ -9,13 +9,12 @@
   *{box-sizing:border-box}
   body{font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
   button{font:inherit;color:inherit;cursor:pointer}
-  .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 .6rem}
-  .dd{position:relative}
+  .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 .6rem;position:relative}
+  .dd{position:static}
   .ddknapp{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.5rem 1rem}
   .ddknapp.aktiv{background:var(--chip);border-color:var(--chip)}
-  .ddpanel{display:none;position:absolute;top:calc(100% + .4rem);left:0;z-index:5;background:#fff;border:1px solid var(--linje);border-radius:1rem;box-shadow:0 8px 24px #0002;width:min(20rem,calc(100vw - 2rem));max-height:60vh;overflow:auto}
+  .ddpanel{display:none;position:absolute;top:calc(100% + .4rem);left:0;right:0;z-index:5;background:#fff;border:1px solid var(--linje);border-radius:1rem;box-shadow:0 8px 24px #0002;max-height:60vh;overflow:auto}
   .dd.oppen .ddpanel{display:block}
-  .dd:last-child .ddpanel{left:auto;right:0}
   .rensa{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--linje);padding:.7rem 1.1rem;color:var(--bla)}
   .info{color:var(--gra);margin:.25rem 0 1rem}
   .kort{background:var(--kort);border:1px solid var(--linje);border-left:5px solid var(--bla);border-radius:1rem;padding:1rem 1.1rem;margin-bottom:1rem}
@@ -26,7 +25,7 @@
   .klubb{font-weight:700;font-size:1.25rem;margin-top:.2rem}
   .plats{color:var(--gra)}
   .fot{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--linje);margin-top:.8rem;padding-top:.8rem}
-  .fot b{text-align:right}
+  .fot b{text-align:right;white-space:nowrap}
   .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
   .kort.oppen .mer{display:block}
   .mer a{color:var(--bla)}
