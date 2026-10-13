@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-12",
+ "uppdaterad": "2026-10-13",
  "tavlingar": [
   {
    "id": "6293",
@@ -178,7 +178,7 @@
    "klubb": "SSRK Västerbotten",
    "anmalan_start": "2026-09-23",
    "anmalan_slut": "2026-10-28",
-   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/6804"
   },
   {
@@ -216,39 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "5377",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Öppenklass Enkelsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-12",
-   "slutdatum": "2026-10-12",
-   "plats": "Uppsala",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-08-01",
-   "anmalan_slut": "2026-10-02",
-   "avgift": "750 kr",
-   "url": "https://skkstart.se/events/5377"
-  },
-  {
-   "id": "5904",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "EKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-12",
-   "slutdatum": "2026-10-12",
-   "plats": "Skokloster",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-07-30",
-   "anmalan_slut": "2026-09-28",
-   "avgift": "1000 kr",
-   "url": "https://skkstart.se/events/5904"
   },
   {
    "id": "5382",
@@ -346,7 +313,7 @@
    "klubb": "FRK Bergslagen",
    "anmalan_start": "2026-09-15",
    "anmalan_slut": "2026-10-12",
-   "avgift": "500 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "500 kr",
    "url": "https://skkstart.se/events/6748"
   },
   {
@@ -380,7 +347,7 @@
    "klubb": "SSRK Västernorrland",
    "anmalan_start": "2026-09-26",
    "anmalan_slut": "2026-10-09",
-   "avgift": "500 kr",
+   "avgift": "500 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/6823"
   },
   {
@@ -514,7 +481,7 @@
    "klubb": "SSRK Östra",
    "anmalan_start": "2026-09-01",
    "anmalan_slut": "2026-10-17",
-   "avgift": "800 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "800 kr",
    "url": "https://skkstart.se/events/5947"
   },
   {
@@ -548,7 +515,7 @@
    "klubb": "SSRK Småland",
    "anmalan_start": "2026-09-20",
    "anmalan_slut": "2026-10-12",
-   "avgift": "550 kr",
+   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/6776"
   },
   {
@@ -684,7 +651,7 @@
    "klubb": "SSRK Gotland",
    "anmalan_start": "2026-05-31",
    "anmalan_slut": "2026-11-23",
-   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "550 kr",
    "url": "https://skkstart.se/events/5840"
   },
   {
@@ -720,7 +687,7 @@
    "klubb": "SSRK Västra",
    "anmalan_start": "2026-07-26",
    "anmalan_slut": "2026-11-25",
-   "avgift": "550 kr",
+   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/6265"
   },
   {
@@ -861,7 +828,7 @@
    "klubb": "SSRK Västra",
    "anmalan_start": "2026-09-01",
    "anmalan_slut": "2026-10-23",
-   "avgift": "1000 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "1000 kr",
    "url": "https://skkstart.se/events/5966"
   },
   {
@@ -894,7 +861,7 @@
    "klubb": "SSRK HS",
    "anmalan_start": "2026-10-01",
    "anmalan_slut": "2026-10-25",
-   "avgift": "1000 kr",
+   "avgift": "1000 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/5229"
   },
   {
@@ -1025,7 +992,7 @@
    "klubb": "SSRK Södra",
    "anmalan_start": "2026-09-30",
    "anmalan_slut": "2026-11-18",
-   "avgift": "800 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "800 kr",
    "url": "https://skkstart.se/events/6847"
   },
   {
@@ -1061,7 +1028,7 @@
    "klubb": "SSRK Gotland",
    "anmalan_start": "2026-05-31",
    "anmalan_slut": "2026-12-21",
-   "avgift": "550 kr",
+   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/5841"
   },
   {
@@ -1203,7 +1170,7 @@
    "klubb": "SSRK Västra",
    "anmalan_start": "2026-07-26",
    "anmalan_slut": "2027-01-25",
-   "avgift": "550 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "550 kr",
    "url": "https://skkstart.se/events/6267"
   },
   {
@@ -1237,7 +1204,7 @@
    "klubb": "SSRK Småland",
    "anmalan_start": "2027-03-01",
    "anmalan_slut": "2027-02-28",
-   "avgift": "500 kr ‹ 1 2 3 4 5 6 7 8 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
+   "avgift": "500 kr ‹ 1 2 3 4 5 6 7 › Copyright © 2026 Svenska Kennelklubben. All rights reserved.",
    "url": "https://skkstart.se/events/6586"
   }
  ]
