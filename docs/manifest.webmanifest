@@ -1,0 +1,14 @@
+{
+  "name": "SSRK prov",
+  "short_name": "SSRK prov",
+  "description": "Kommande prov för Svenska Spaniel och Retrieverklubben, från SKK Start.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f5f2",
+  "theme_color": "#1f5f8b",
+  "lang": "sv",
+  "icons": [
+    { "src": "ikon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "ikon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
