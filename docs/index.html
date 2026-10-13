@@ -67,6 +67,10 @@ try {
   valda = {namn: new Set(s.namn || []), klubb: new Set(s.klubb || [])};
 } catch (e) {}
 const url = new URLSearchParams(location.search);
+if (url.has("v")) {  // ta bort cache-parametern från adressen efter omladdning
+  url.delete("v");
+  history.replaceState(null, "", location.pathname + (url.toString() ? "?" + url : ""));
+}
 if (url.has("t") || url.has("a")) {
   valda = {namn: new Set(url.getAll("t")), klubb: new Set(url.getAll("a"))};
 }
@@ -168,10 +172,18 @@ function hamta() {
   return d;
   });
 }
-hamta();
-$("uppdatera").onclick = () => hamta()
-  .then(d => toast(`Uppdaterad · data från ${d.uppdaterad}`))
-  .catch(() => toast("Kunde inte hämta, försök igen"));
+hamta().then(d => {
+  let omladdad = false;
+  try { omladdad = sessionStorage.getItem("ssrk-omladdad"); sessionStorage.removeItem("ssrk-omladdad"); } catch (e) {}
+  if (omladdad) toast(`Uppdaterad · data från ${d.uppdaterad}`);
+});
+// Laddar om hela appen förbi cachen (viktigt när den ligger på hemskärmen)
+$("uppdatera").onclick = () => {
+  try { sessionStorage.setItem("ssrk-omladdad", "1"); } catch (e) {}
+  const q = new URLSearchParams(location.search);
+  q.set("v", Date.now());
+  location.replace(location.pathname + "?" + q);
+};
 </script>
 </body>
 </html>
