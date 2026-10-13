@@ -7,7 +7,7 @@
 <style>
   :root{--bg:#f6f5f2;--kort:#fff;--text:#1d1d1f;--gra:#7a7a7a;--linje:#e3e1dc;--bla:#2f5d8a;--chip:#e6eef6}
   *{box-sizing:border-box}
-  body{padding-bottom:5rem !important;font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
+  body{font:17px/1.4 -apple-system,system-ui,sans-serif;margin:0 auto;max-width:36rem;padding:1rem;background:var(--bg);color:var(--text)}
   button{font:inherit;color:inherit;cursor:pointer}
   .rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0 .6rem;position:relative}
   .dd{position:static}
@@ -29,8 +29,13 @@
   .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
   .kort.oppen .mer{display:block}
   .mer a{color:var(--bla)}
-  .hoger{margin-left:auto;display:flex;gap:.4rem}
-  .kaffe-knapp{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.95rem;color:#1d1d1b;background:#ffdd00;border-radius:999px;padding:.5rem 1rem;box-shadow:0 2px 6px rgb(0 0 0 / .18);position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom));z-index:4}
+  .topp-rad{display:flex;gap:.6rem;align-items:center;margin:.25rem 0 .6rem}
+  .topp-rad .kaffe-knapp{flex:1.618;text-align:center}
+  .hoger{flex:1;display:flex;gap:.6rem}
+  .hoger .ikon{flex:1;width:auto;border-radius:2rem}
+  .rad .dd{flex:1}
+  .ddknapp{width:100%}
+  .kaffe-knapp{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.95rem;color:#1d1d1b;background:#ffdd00;border-radius:999px;padding:.5rem 1rem;box-shadow:0 2px 6px rgb(0 0 0 / .18);}
   .ikon{background:var(--kort);border:1px solid var(--linje);border-radius:50%;width:2.6rem;height:2.6rem;padding:0;font-size:1.1rem}
   .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:.6rem 1rem;border-radius:2rem;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
   .toast.syns{opacity:1}
@@ -41,15 +46,17 @@
 </style>
 </head>
 <body>
-<div class="rad">
-  <div class="dd" id="namn"><button class="ddknapp"></button><div class="ddpanel"></div></div>
-  <div class="dd" id="klubb"><button class="ddknapp"></button><div class="ddpanel"></div></div>
+<div class="topp-rad">
+  <a class="kaffe-knapp" href="https://buymeacoffee.com/dogshows" target="_blank" rel="noopener">☕ Bjud på kaffe</a>
   <span class="hoger">
     <button class="ikon" id="uppdatera" aria-label="Uppdatera" title="Uppdatera">↻</button>
     <button class="ikon" id="dela" aria-label="Dela" title="Dela">↗</button>
   </span>
 </div>
-<a class="kaffe-knapp" href="https://buymeacoffee.com/dogshows" target="_blank" rel="noopener">☕ Bjud på kaffe</a>
+<div class="rad">
+  <div class="dd" id="namn"><button class="ddknapp"></button><div class="ddpanel"></div></div>
+  <div class="dd" id="klubb"><button class="ddknapp"></button><div class="ddpanel"></div></div>
+</div>
 <p class="info" id="info">Laddar…</p>
 <div id="lista"></div>
 <p class="info" id="uppdaterad"></p>
