@@ -29,7 +29,8 @@
   .mer{display:none;margin-top:.8rem;color:var(--gra);font-size:.95rem}
   .kort.oppen .mer{display:block}
   .mer a{color:var(--bla)}
-  .verktyg{display:flex;justify-content:flex-end;gap:.5rem}
+  .verktyg{display:flex;justify-content:flex-end;align-items:center;gap:.5rem;flex-wrap:wrap}
+  .kaffe-knapp{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.95rem;color:#1d1d1b;background:#ffdd00;border-radius:999px;padding:.5rem 1rem;box-shadow:0 2px 6px rgb(0 0 0 / .18);margin-right:auto}
   .ikon{background:var(--kort);border:1px solid var(--linje);border-radius:2rem;padding:.4rem .9rem;font-size:.95rem}
   .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:#1d1d1f;color:#fff;padding:.6rem 1rem;border-radius:2rem;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
   .toast.syns{opacity:1}
@@ -41,7 +42,8 @@
 </head>
 <body>
 <div class="verktyg">
-  <button class="ikon" id="uppdatera">↻ Uppdatera</button>
+  <a class="kaffe-knapp" href="https://buymeacoffee.com/dogshows" target="_blank" rel="noopener">☕ Bjud på kaffe</a>
+  <button class="ikon" id="uppdatera" aria-label="Uppdatera" title="Uppdatera">↻</button>
   <button class="ikon" id="dela">↗ Dela</button>
 </div>
 <div class="rad">
