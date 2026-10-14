@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-13",
+ "uppdaterad": "2026-10-14",
  "tavlingar": [
   {
    "id": "6293",
@@ -962,6 +962,23 @@
    "anmalan_slut": "2026-11-08",
    "avgift": "750 kr",
    "url": "https://skkstart.se/events/6845"
+  },
+  {
+   "id": "6921",
+   "namn": "SKK - Viltspår",
+   "klasser": [
+    "Öppen klass",
+    "Ordinarie",
+    "Officiellt"
+   ],
+   "datum": "2026-11-20",
+   "slutdatum": "2026-11-22",
+   "plats": "inom avd",
+   "klubb": "SSRK Västra",
+   "anmalan_start": "2026-10-29",
+   "anmalan_slut": "2026-11-04",
+   "avgift": "550 kr",
+   "url": "https://skkstart.se/events/6921"
   },
   {
    "id": "6231",
