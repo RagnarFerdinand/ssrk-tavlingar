@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-14",
+ "uppdaterad": "2026-10-15",
  "tavlingar": [
   {
    "id": "6293",
@@ -218,22 +218,6 @@
    "url": "https://skkstart.se/events/6874"
   },
   {
-   "id": "5382",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Segrarklass Parsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-14",
-   "slutdatum": "2026-10-14",
-   "plats": "Flen",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-08-01",
-   "anmalan_slut": "2026-10-04",
-   "avgift": "800 kr",
-   "url": "https://skkstart.se/events/5382"
-  },
-  {
    "id": "6089",
    "namn": "SSRK - Retrieverjaktprov A",
    "klasser": [
@@ -362,7 +346,7 @@
    "plats": "Hörby",
    "klubb": "SSRK Södra",
    "anmalan_start": "2026-09-29",
-   "anmalan_slut": "2026-10-12",
+   "anmalan_slut": "2026-10-15",
    "avgift": "350 kr",
    "url": "https://skkstart.se/events/6838"
   },
