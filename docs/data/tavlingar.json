@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-15",
+ "uppdaterad": "2026-10-16",
  "tavlingar": [
   {
    "id": "6293",
@@ -216,23 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "6089",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-15",
-   "slutdatum": "2026-10-15",
-   "plats": "Laholm",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-07-07",
-   "anmalan_slut": "2026-10-05",
-   "avgift": "850 kr",
-   "url": "https://skkstart.se/events/6089"
   },
   {
    "id": "5834",
@@ -584,6 +567,23 @@
    "anmalan_slut": "2026-10-17",
    "avgift": "850 kr",
    "url": "https://skkstart.se/events/6609"
+  },
+  {
+   "id": "6929",
+   "namn": "SSRK - Retrieverjaktprov A",
+   "klasser": [
+    "Nationellt",
+    "ÖKL",
+    "Officiellt"
+   ],
+   "datum": "2026-10-30",
+   "slutdatum": "2026-10-30",
+   "plats": "Bro",
+   "klubb": "SSRK Östra",
+   "anmalan_start": "2026-10-15",
+   "anmalan_slut": "2026-10-24",
+   "avgift": "850 kr",
+   "url": "https://skkstart.se/events/6929"
   },
   {
    "id": "6821",
