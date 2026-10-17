@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-16",
+ "uppdaterad": "2026-10-17",
  "tavlingar": [
   {
    "id": "6293",
@@ -218,22 +218,6 @@
    "url": "https://skkstart.se/events/6874"
   },
   {
-   "id": "5834",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Öppenklass Enkelsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-16",
-   "slutdatum": "2026-10-16",
-   "plats": "Gotland",
-   "klubb": "SSRK Gotland",
-   "anmalan_start": "2026-09-07",
-   "anmalan_slut": "2026-10-11",
-   "avgift": "700 kr",
-   "url": "https://skkstart.se/events/5834"
-  },
-  {
    "id": "5835",
    "namn": "SSRK - Spaniel Fältprov",
    "klasser": [
@@ -279,7 +263,7 @@
    "plats": "Lånsta Sala",
    "klubb": "FRK Bergslagen",
    "anmalan_start": "2026-09-15",
-   "anmalan_slut": "2026-10-12",
+   "anmalan_slut": "2026-10-16",
    "avgift": "500 kr",
    "url": "https://skkstart.se/events/6748"
   },
