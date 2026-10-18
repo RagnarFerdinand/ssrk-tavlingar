@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-17",
+ "uppdaterad": "2026-10-18",
  "tavlingar": [
   {
    "id": "6293",
@@ -173,11 +173,11 @@
     "Officiellt"
    ],
    "datum": "2026-10-01",
-   "slutdatum": "2026-10-31",
+   "slutdatum": "2026-10-25",
    "plats": "inom avd",
    "klubb": "SSRK Västerbotten",
    "anmalan_start": "2026-09-23",
-   "anmalan_slut": "2026-10-28",
+   "anmalan_slut": "2026-10-17",
    "avgift": "550 kr",
    "url": "https://skkstart.se/events/6804"
   },
@@ -216,73 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "5835",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Segrarklass Parsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-17",
-   "slutdatum": "2026-10-17",
-   "plats": "Gotland",
-   "klubb": "SSRK Gotland",
-   "anmalan_start": "2026-09-07",
-   "anmalan_slut": "2026-10-11",
-   "avgift": "750 kr",
-   "url": "https://skkstart.se/events/5835"
-  },
-  {
-   "id": "5965",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "EKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-17",
-   "slutdatum": "2026-10-17",
-   "plats": "Falkenberg",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-09-01",
-   "anmalan_slut": "2026-10-07",
-   "avgift": "1000 kr",
-   "url": "https://skkstart.se/events/5965"
-  },
-  {
-   "id": "6748",
-   "namn": "SSRK - Funktionsbeskrivning Retriever",
-   "klasser": [
-    "Nationellt",
-    "FB-R",
-    "Officiellt"
-   ],
-   "datum": "2026-10-17",
-   "slutdatum": "2026-10-17",
-   "plats": "Lånsta Sala",
-   "klubb": "FRK Bergslagen",
-   "anmalan_start": "2026-09-15",
-   "anmalan_slut": "2026-10-16",
-   "avgift": "500 kr",
-   "url": "https://skkstart.se/events/6748"
-  },
-  {
-   "id": "6822",
-   "namn": "SSRK - Funktionsbeskrivning Retriever",
-   "klasser": [
-    "Nationellt",
-    "FB-R",
-    "Officiellt"
-   ],
-   "datum": "2026-10-17",
-   "slutdatum": "2026-10-17",
-   "plats": "Timrå",
-   "klubb": "SSRK Västernorrland",
-   "anmalan_start": "2026-09-26",
-   "anmalan_slut": "2026-10-09",
-   "avgift": "500 kr",
-   "url": "https://skkstart.se/events/6822"
   },
   {
    "id": "6823",
