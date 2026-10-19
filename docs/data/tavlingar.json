@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-18",
+ "uppdaterad": "2026-10-19",
  "tavlingar": [
   {
    "id": "6293",
@@ -216,39 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "6823",
-   "namn": "SSRK - Funktionsbeskrivning Retriever",
-   "klasser": [
-    "Nationellt",
-    "FB-R",
-    "Officiellt"
-   ],
-   "datum": "2026-10-18",
-   "slutdatum": "2026-10-18",
-   "plats": "Timrå",
-   "klubb": "SSRK Västernorrland",
-   "anmalan_start": "2026-09-26",
-   "anmalan_slut": "2026-10-09",
-   "avgift": "500 kr",
-   "url": "https://skkstart.se/events/6823"
-  },
-  {
-   "id": "6838",
-   "namn": "SSRK - Spaniel Vattenprov",
-   "klasser": [
-    "Vattenprov",
-    "Officiellt"
-   ],
-   "datum": "2026-10-18",
-   "slutdatum": "2026-10-18",
-   "plats": "Hörby",
-   "klubb": "SSRK Södra",
-   "anmalan_start": "2026-09-29",
-   "anmalan_slut": "2026-10-15",
-   "avgift": "350 kr",
-   "url": "https://skkstart.se/events/6838"
   },
   {
    "id": "6201",
