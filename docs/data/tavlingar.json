@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-21",
+ "uppdaterad": "2026-10-22",
  "tavlingar": [
   {
    "id": "6293",
@@ -417,6 +417,23 @@
    "anmalan_slut": "2026-10-20",
    "avgift": "700 kr",
    "url": "https://skkstart.se/events/5824"
+  },
+  {
+   "id": "6962",
+   "namn": "SSRK - Tolling Praktiskt Prov",
+   "klasser": [
+    "Nationellt",
+    "Praktiskt prov",
+    "Officiellt"
+   ],
+   "datum": "2026-10-28",
+   "slutdatum": "2026-10-28",
+   "plats": "Rimbo",
+   "klubb": "SSRK HS",
+   "anmalan_start": "2026-10-20",
+   "anmalan_slut": "2026-10-20",
+   "avgift": "900 kr",
+   "url": "https://skkstart.se/events/6962"
   },
   {
    "id": "6609",
