@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-22",
+ "uppdaterad": "2026-10-23",
  "tavlingar": [
   {
    "id": "6293",
@@ -216,23 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "6907",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "EKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-22",
-   "slutdatum": "2026-10-22",
-   "plats": "Arlanda",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-10-09",
-   "anmalan_slut": "2026-10-15",
-   "avgift": "1000 kr",
-   "url": "https://skkstart.se/events/6907"
   },
   {
    "id": "6228",
