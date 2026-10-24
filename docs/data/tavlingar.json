@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-23",
+ "uppdaterad": "2026-10-24",
  "tavlingar": [
   {
    "id": "6293",
@@ -216,57 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "6228",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "Officiellt",
-    "NKL"
-   ],
-   "datum": "2026-10-23",
-   "slutdatum": "2026-10-23",
-   "plats": "Femsjö",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-07-21",
-   "anmalan_slut": "2026-10-13",
-   "avgift": "600 kr",
-   "url": "https://skkstart.se/events/6228"
-  },
-  {
-   "id": "6317",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-23",
-   "slutdatum": "2026-10-23",
-   "plats": "Falkenberg",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-07-31",
-   "anmalan_slut": "2026-10-13",
-   "avgift": "850 kr",
-   "url": "https://skkstart.se/events/6317"
-  },
-  {
-   "id": "6688",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "Officiellt",
-    "Praktiskt Prov"
-   ],
-   "datum": "2026-10-23",
-   "slutdatum": "2026-10-23",
-   "plats": "Munka-Ljungby",
-   "klubb": "SSRK Södra",
-   "anmalan_start": "2026-09-09",
-   "anmalan_slut": "2026-10-09",
-   "avgift": "800 kr",
-   "url": "https://skkstart.se/events/6688"
   },
   {
    "id": "4962",
