@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-24",
+ "uppdaterad": "2026-10-25",
  "tavlingar": [
   {
    "id": "6293",
@@ -216,90 +216,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "4962",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "Officiellt",
-    "NKL"
-   ],
-   "datum": "2026-10-24",
-   "slutdatum": "2026-10-24",
-   "plats": "Håbo",
-   "klubb": "LRK Östra",
-   "anmalan_start": "2026-06-01",
-   "anmalan_slut": "2026-10-11",
-   "avgift": "600 kr",
-   "url": "https://skkstart.se/events/4962"
-  },
-  {
-   "id": "5947",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Segrarklass Parsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-24",
-   "slutdatum": "2026-10-24",
-   "plats": "Sigtuna",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-09-01",
-   "anmalan_slut": "2026-10-17",
-   "avgift": "800 kr",
-   "url": "https://skkstart.se/events/5947"
-  },
-  {
-   "id": "6522",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-24",
-   "slutdatum": "2026-10-24",
-   "plats": "Söderköping",
-   "klubb": "SSRK Östergötland",
-   "anmalan_start": "2026-08-22",
-   "anmalan_slut": "2026-10-11",
-   "avgift": "850 kr",
-   "url": "https://skkstart.se/events/6522"
-  },
-  {
-   "id": "6776",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-24",
-   "slutdatum": "2026-10-24",
-   "plats": "Torsås - F",
-   "klubb": "SSRK Småland",
-   "anmalan_start": "2026-09-20",
-   "anmalan_slut": "2026-10-12",
-   "avgift": "550 kr",
-   "url": "https://skkstart.se/events/6776"
-  },
-  {
-   "id": "6828",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "Officiellt",
-    "NKL"
-   ],
-   "datum": "2026-10-24",
-   "slutdatum": "2026-10-24",
-   "plats": "Kraxagården",
-   "klubb": "FRK Skåne-Blekinge",
-   "anmalan_start": "2026-09-27",
-   "anmalan_slut": "2026-10-14",
-   "avgift": "600 kr",
-   "url": "https://skkstart.se/events/6828"
   },
   {
    "id": "4961",
