@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-25",
+ "uppdaterad": "2026-10-26",
  "tavlingar": [
   {
    "id": "6293",
@@ -164,24 +164,6 @@
    "url": "https://skkstart.se/events/6616"
   },
   {
-   "id": "6804",
-   "namn": "SKK - Viltspår",
-   "klasser": [
-    "Anlagsklass",
-    "Öppen klass",
-    "Rörligt",
-    "Officiellt"
-   ],
-   "datum": "2026-10-01",
-   "slutdatum": "2026-10-25",
-   "plats": "inom avd",
-   "klubb": "SSRK Västerbotten",
-   "anmalan_start": "2026-09-23",
-   "anmalan_slut": "2026-10-17",
-   "avgift": "550 kr",
-   "url": "https://skkstart.se/events/6804"
-  },
-  {
    "id": "6855",
    "namn": "SKK - Viltspår",
    "klasser": [
@@ -216,55 +198,6 @@
    "anmalan_slut": "2026-10-26",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6874"
-  },
-  {
-   "id": "4961",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-10-25",
-   "slutdatum": "2026-10-25",
-   "plats": "Funktionärsprov - Håbo",
-   "klubb": "LRK Östra",
-   "anmalan_start": "2026-06-01",
-   "anmalan_slut": "2026-10-11",
-   "avgift": "600 kr",
-   "url": "https://skkstart.se/events/4961"
-  },
-  {
-   "id": "5383",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Öppenklass Enkelsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-25",
-   "slutdatum": "2026-10-25",
-   "plats": "Nykvarn",
-   "klubb": "SSRK Östra",
-   "anmalan_start": "2026-08-01",
-   "anmalan_slut": "2026-10-14",
-   "avgift": "750 kr",
-   "url": "https://skkstart.se/events/5383"
-  },
-  {
-   "id": "5824",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Öppenklass Enkelsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-10-25",
-   "slutdatum": "2026-10-25",
-   "plats": "Kalmar",
-   "klubb": "SSRK Småland",
-   "anmalan_start": "2026-09-01",
-   "anmalan_slut": "2026-10-20",
-   "avgift": "700 kr",
-   "url": "https://skkstart.se/events/5824"
   },
   {
    "id": "6962",
