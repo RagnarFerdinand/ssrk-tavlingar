@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-10-26",
+ "uppdaterad": "2026-10-27",
  "tavlingar": [
   {
    "id": "6293",
@@ -180,24 +180,6 @@
    "anmalan_slut": "2026-10-25",
    "avgift": "550 kr",
    "url": "https://skkstart.se/events/6855"
-  },
-  {
-   "id": "6874",
-   "namn": "SKK - Viltspår",
-   "klasser": [
-    "Anlagsklass",
-    "Öppen klass",
-    "Rörligt",
-    "Officiellt"
-   ],
-   "datum": "2026-10-01",
-   "slutdatum": "2026-10-26",
-   "plats": "Västernorrland",
-   "klubb": "SSRK Västernorrland",
-   "anmalan_start": "2026-10-05",
-   "anmalan_slut": "2026-10-26",
-   "avgift": "450 kr",
-   "url": "https://skkstart.se/events/6874"
   },
   {
    "id": "6962",
@@ -464,6 +446,24 @@
    "url": "https://skkstart.se/events/6880"
   },
   {
+   "id": "6994",
+   "namn": "SKK - Viltspår",
+   "klasser": [
+    "Anlagsklass",
+    "Öppen klass",
+    "Rörligt",
+    "Officiellt"
+   ],
+   "datum": "2026-11-01",
+   "slutdatum": "2026-11-30",
+   "plats": "Västernorrland",
+   "klubb": "SSRK Västernorrland",
+   "anmalan_start": "2026-11-01",
+   "anmalan_slut": "2026-11-25",
+   "avgift": "450 kr",
+   "url": "https://skkstart.se/events/6994"
+  },
+  {
    "id": "5966",
    "namn": "SSRK - Retrieverjaktprov A",
    "klasser": [
@@ -529,6 +529,23 @@
    "anmalan_slut": "2026-10-24",
    "avgift": "850 kr",
    "url": "https://skkstart.se/events/5867"
+  },
+  {
+   "id": "6995",
+   "namn": "SSRK - Retrieverjaktprov B",
+   "klasser": [
+    "Nationellt",
+    "Officiellt",
+    "NKL"
+   ],
+   "datum": "2026-11-07",
+   "slutdatum": "2026-11-07",
+   "plats": "Höglandet, Nässjö - F",
+   "klubb": "SSRK Småland",
+   "anmalan_start": "2026-10-26",
+   "anmalan_slut": "2026-11-01",
+   "avgift": "450 kr",
+   "url": "https://skkstart.se/events/6995"
   },
   {
    "id": "5230",
