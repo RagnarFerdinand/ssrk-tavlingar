@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-01",
+ "uppdaterad": "2026-11-02",
  "tavlingar": [
   {
    "id": "5055",
@@ -128,40 +128,6 @@
    "url": "https://skkstart.se/events/6341"
   },
   {
-   "id": "6391",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-11-01",
-   "slutdatum": "2026-11-01",
-   "plats": "Svedala",
-   "klubb": "SSRK Södra",
-   "anmalan_start": "2026-08-06",
-   "anmalan_slut": "2026-10-18",
-   "avgift": "850 kr",
-   "url": "https://skkstart.se/events/6391"
-  },
-  {
-   "id": "6817",
-   "namn": "SSRK - Retrieverjaktprov B",
-   "klasser": [
-    "Nationellt",
-    "Officiellt",
-    "NKL"
-   ],
-   "datum": "2026-11-01",
-   "slutdatum": "2026-11-01",
-   "plats": "Tiraholm",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-09-24",
-   "anmalan_slut": "2026-10-24",
-   "avgift": "600 kr",
-   "url": "https://skkstart.se/events/6817"
-  },
-  {
    "id": "6856",
    "namn": "SKK - Viltspår",
    "klasser": [
@@ -214,6 +180,24 @@
    "anmalan_slut": "2026-11-25",
    "avgift": "450 kr",
    "url": "https://skkstart.se/events/6994"
+  },
+  {
+   "id": "7042",
+   "namn": "SKK - Viltspår",
+   "klasser": [
+    "Anlagsklass",
+    "Öppen klass",
+    "Rörligt",
+    "Officiellt"
+   ],
+   "datum": "2026-11-01",
+   "slutdatum": "2026-11-30",
+   "plats": "Inom Avd",
+   "klubb": "SSRK Östergötland",
+   "anmalan_start": "2026-11-01",
+   "anmalan_slut": "2026-11-30",
+   "avgift": "600 kr",
+   "url": "https://skkstart.se/events/7042"
   },
   {
    "id": "5966",
@@ -586,7 +570,7 @@
    "slutdatum": "2026-12-03",
    "plats": "Falkenberg",
    "klubb": "SSRK Västra",
-   "anmalan_start": "2026-11-03",
+   "anmalan_start": "2026-11-02",
    "anmalan_slut": "2026-11-19",
    "avgift": "850 kr",
    "url": "https://skkstart.se/events/7019"
