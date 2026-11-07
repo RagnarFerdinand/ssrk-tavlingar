@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-06",
+ "uppdaterad": "2026-11-07",
  "tavlingar": [
   {
    "id": "5055",
@@ -198,40 +198,6 @@
    "anmalan_slut": "2026-11-30",
    "avgift": "600 kr",
    "url": "https://skkstart.se/events/7042"
-  },
-  {
-   "id": "5966",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "EKL",
-    "Officiellt"
-   ],
-   "datum": "2026-11-06",
-   "slutdatum": "2026-11-06",
-   "plats": "RETRIEVERMÄSTERSKAPET 2026",
-   "klubb": "SSRK Västra",
-   "anmalan_start": "2026-09-01",
-   "anmalan_slut": "2026-10-23",
-   "avgift": "1000 kr",
-   "url": "https://skkstart.se/events/5966"
-  },
-  {
-   "id": "6392",
-   "namn": "SSRK - Retrieverjaktprov A",
-   "klasser": [
-    "Nationellt",
-    "ÖKL",
-    "Officiellt"
-   ],
-   "datum": "2026-11-06",
-   "slutdatum": "2026-11-06",
-   "plats": "Svedala",
-   "klubb": "SSRK Södra",
-   "anmalan_start": "2026-08-06",
-   "anmalan_slut": "2026-10-24",
-   "avgift": "850 kr",
-   "url": "https://skkstart.se/events/6392"
   },
   {
    "id": "5229",
