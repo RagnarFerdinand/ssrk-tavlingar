@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-08",
+ "uppdaterad": "2026-11-09",
  "tavlingar": [
   {
    "id": "5055",
@@ -198,22 +198,6 @@
    "anmalan_slut": "2026-11-30",
    "avgift": "600 kr",
    "url": "https://skkstart.se/events/7042"
-  },
-  {
-   "id": "5230",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Segrarklass Parsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-11-08",
-   "slutdatum": "2026-11-08",
-   "plats": "Mörrum, Spanielmästerskapet 2026 - Cocker",
-   "klubb": "SSRK HS",
-   "anmalan_start": "2026-10-01",
-   "anmalan_slut": "2026-10-25",
-   "avgift": "1000 kr",
-   "url": "https://skkstart.se/events/5230"
   },
   {
    "id": "5711",
