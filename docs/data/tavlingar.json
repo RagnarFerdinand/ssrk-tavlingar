@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-12",
+ "uppdaterad": "2026-11-13",
  "tavlingar": [
   {
    "id": "5055",
@@ -543,6 +543,23 @@
    "anmalan_slut": "2027-02-22",
    "avgift": "550 kr",
    "url": "https://skkstart.se/events/6268"
+  },
+  {
+   "id": "7087",
+   "namn": "SSRK - Retrieverjaktprov B",
+   "klasser": [
+    "Nationellt",
+    "Officiellt",
+    "EKL Dummy"
+   ],
+   "datum": "2027-05-06",
+   "slutdatum": "2027-05-06",
+   "plats": "Västerås",
+   "klubb": "SSRK Bergslagen",
+   "anmalan_start": "2027-03-01",
+   "anmalan_slut": "2027-04-26",
+   "avgift": "600 kr",
+   "url": "https://skkstart.se/events/7087"
   },
   {
    "id": "6586",
