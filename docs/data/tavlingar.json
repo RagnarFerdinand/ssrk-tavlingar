@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-13",
+ "uppdaterad": "2026-11-14",
  "tavlingar": [
   {
    "id": "5055",
@@ -36,24 +36,6 @@
    "anmalan_slut": "2026-11-23",
    "avgift": "550 kr",
    "url": "https://skkstart.se/events/5840"
-  },
-  {
-   "id": "6226",
-   "namn": "SKK - Viltspår",
-   "klasser": [
-    "Anlagsklass",
-    "Öppen klass",
-    "Rörligt",
-    "Officiellt"
-   ],
-   "datum": "2026-11-01",
-   "slutdatum": "2026-11-30",
-   "plats": "Dalarna",
-   "klubb": "SSRK Dalarna Viltspår",
-   "anmalan_start": "2026-07-21",
-   "anmalan_slut": "2026-11-29",
-   "avgift": "550 kr",
-   "url": "https://skkstart.se/events/6226"
   },
   {
    "id": "6265",
@@ -215,6 +197,24 @@
    "anmalan_slut": "2026-10-30",
    "avgift": "800 kr",
    "url": "https://skkstart.se/events/5711"
+  },
+  {
+   "id": "6226",
+   "namn": "SKK - Viltspår",
+   "klasser": [
+    "Anlagsklass",
+    "Öppen klass",
+    "Rörligt",
+    "Officiellt"
+   ],
+   "datum": "2026-11-14",
+   "slutdatum": "2026-11-30",
+   "plats": "Dalarna",
+   "klubb": "SSRK Dalarna Viltspår",
+   "anmalan_start": "2026-07-21",
+   "anmalan_slut": "2026-11-29",
+   "avgift": "550 kr",
+   "url": "https://skkstart.se/events/6226"
   },
   {
    "id": "6842",
