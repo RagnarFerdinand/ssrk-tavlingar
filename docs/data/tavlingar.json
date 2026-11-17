@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-16",
+ "uppdaterad": "2026-11-17",
  "tavlingar": [
   {
    "id": "5055",
@@ -198,22 +198,6 @@
    "anmalan_slut": "2026-11-30",
    "avgift": "600 kr",
    "url": "https://skkstart.se/events/7042"
-  },
-  {
-   "id": "6845",
-   "namn": "SSRK - Spaniel Fältprov",
-   "klasser": [
-    "Öppenklass Enkelsläpp",
-    "Officiellt"
-   ],
-   "datum": "2026-11-16",
-   "slutdatum": "2026-11-16",
-   "plats": "Kristianstad",
-   "klubb": "SSRK Södra",
-   "anmalan_start": "2026-09-30",
-   "anmalan_slut": "2026-11-08",
-   "avgift": "750 kr",
-   "url": "https://skkstart.se/events/6845"
   },
   {
    "id": "6921",
