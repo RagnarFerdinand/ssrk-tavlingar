@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-17",
+ "uppdaterad": "2026-11-18",
  "tavlingar": [
   {
    "id": "5055",
@@ -425,6 +425,22 @@
    "anmalan_slut": "2026-11-24",
    "avgift": "850 kr",
    "url": "https://skkstart.se/events/7064"
+  },
+  {
+   "id": "7103",
+   "namn": "SSRK - Spaniel Fältprov",
+   "klasser": [
+    "Öppenklass Enkelsläpp",
+    "Officiellt"
+   ],
+   "datum": "2026-12-04",
+   "slutdatum": "2026-12-04",
+   "plats": "Falkenberg",
+   "klubb": "SSRK Västra",
+   "anmalan_start": "2026-11-18",
+   "anmalan_slut": "2026-11-29",
+   "avgift": "750 kr",
+   "url": "https://skkstart.se/events/7103"
   },
   {
    "id": "6850",
