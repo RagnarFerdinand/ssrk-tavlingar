@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-20",
+ "uppdaterad": "2026-11-21",
  "tavlingar": [
   {
    "id": "5055",
@@ -241,10 +241,10 @@
    ],
    "datum": "2026-11-28",
    "slutdatum": "2026-11-28",
-   "plats": "Skurup",
+   "plats": "Halmstad",
    "klubb": "SSRK Södra",
    "anmalan_start": "2026-09-30",
-   "anmalan_slut": "2026-11-18",
+   "anmalan_slut": "2026-11-24",
    "avgift": "800 kr",
    "url": "https://skkstart.se/events/6847"
   },
@@ -391,6 +391,24 @@
    "anmalan_slut": "2026-12-30",
    "avgift": "500 kr",
    "url": "https://skkstart.se/events/6881"
+  },
+  {
+   "id": "7112",
+   "namn": "SKK - Viltspår",
+   "klasser": [
+    "Anlagsklass",
+    "Öppen klass",
+    "Rörligt",
+    "Officiellt"
+   ],
+   "datum": "2026-12-01",
+   "slutdatum": "2026-12-31",
+   "plats": "Inom Avd",
+   "klubb": "SSRK Östergötland",
+   "anmalan_start": "2026-12-01",
+   "anmalan_slut": "2026-12-31",
+   "avgift": "600 kr",
+   "url": "https://skkstart.se/events/7112"
   },
   {
    "id": "7019",
