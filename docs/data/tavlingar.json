@@ -1,5 +1,5 @@
 {
- "uppdaterad": "2026-11-27",
+ "uppdaterad": "2026-11-28",
  "tavlingar": [
   {
    "id": "5055",
@@ -459,6 +459,23 @@
    "anmalan_slut": "2026-11-20",
    "avgift": "550 kr",
    "url": "https://skkstart.se/events/7107"
+  },
+  {
+   "id": "7128",
+   "namn": "SSRK - Retrieverjaktprov A",
+   "klasser": [
+    "Nationellt",
+    "ÖKL",
+    "Officiellt"
+   ],
+   "datum": "2026-12-18",
+   "slutdatum": "2026-12-18",
+   "plats": "Falkenberg",
+   "klubb": "SSRK Västra",
+   "anmalan_start": "2026-11-26",
+   "anmalan_slut": "2026-12-04",
+   "avgift": "850 kr",
+   "url": "https://skkstart.se/events/7128"
   },
   {
    "id": "6267",
